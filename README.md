@@ -3,9 +3,9 @@
 This is a **simple** RECURSIVE ES6 Node.js JavaScript program that will check for a winner of a tic-tac-toe game based on the current setup of the board.
 You can create a grid of any size and have an uneven grid height and width. You can even set the number of consecutive letters needed for a win! So, think Super Connect 4 :) You could conceivably make a 400x500 grid and require 100 consecutive X's or O's to win, and eventually scale more and take on the WOPR from the 80's WarGames film :)
 
-It's RECURSIVE, so it's light on it's feet and fast. The recursion depth will stop when a non-consecutive player character is found in the direction it is checking (horizontal, vertical, and diagonal!
+It's RECURSIVE, so it's light on it's feet and fast. The recursion depth will stop when a non-consecutive player character is found in the direction it is checking (horizontal, vertical, and diagonal)!
 
-You can also setup test boards quickly!! It's just checking a move. More to come later interms of finishing the game ;)
+You can also setup test boards quickly!! It's just checking a move. More to come later in terms of finishing the game ;)
 
 # What's special about this tic-tac-toe board?
 
