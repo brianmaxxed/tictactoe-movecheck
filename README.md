@@ -1,7 +1,7 @@
 # tictactoe-movecheck
 
 This is a **simple** ES6 Node.js JavaScript program that will check for a winner of a tic-tac-toe game based on the current setup of the board.
-You can create a grid of any size and have an uneven grid height and width. You can even set the number of consecutive letters needed for a win! So, think Super Connect 4 :)
+You can create a grid of any size and have an uneven grid height and width. You can even set the number of consecutive letters needed for a win! So, think Super Connect 4 :) You could conceivably make a 400x500 grid and require 100 consecutive X's or O's to win, and eventually scale more and take on the WOPR from the 80's WarGames film :)
 
 # What's special about this tic-tac-toe board?
 
@@ -33,17 +33,17 @@ Also, to make the algorithm even faster we could store indexes of already checke
 
 # Grab the source code
 clone the repo:
-git clone (git@github.com:briansizelr/tictactoe-movecheck.git]
+```git clone git@github.com:briansizelr/tictactoe-movecheck.git```
 
 # Run the game
 and simply run game.js from the command line:
-node game.js
+```node game.js```
 
 the script will load in the test_board.js sample board as a multi-dimensional array.
 You can change the board to contain different X, O and empty space combinations. The empties are designated with a lowercase 'e'.
 
 # make a test board
-Have a look at test_board.js:
+Have a look at **test_board.js**:
 
 ```
 const {X, O, e} = require('./vars')
@@ -107,8 +107,8 @@ MoveCheck {
 
 Notice above that the board has several data elements.
 
-the board.data is the board represented as a one dimensional string of characters for very fast processing.
-gridX and gridY are the size of the grid. In the above example the grid is 8x7.
+the **board.data** is the board represented as a one dimensional string of characters for very fast processing.
+**gridX** and **gridY** are the size of the grid. In the above example the grid is 8x7.
 the winSize is taken from the test_board.js file and it means you need 4 in a row.
 Experiment with other win sizes up to the grid X or Y dimensions.
 
@@ -121,7 +121,7 @@ Lastly, the output object will tell you if someone won or there was a tie.
 
 # Additional testing boards
 
-You can view other test boards that start with test_*.js. There is a tie board and an unfinished board. Feel free to modify test_board.js by putting in a winning diagonal left, diagonal right, horizontal or vertical win of X or O.
+You can view other test boards that start with **test_*.js**. There is a tie board and an unfinished board. Feel free to modify **test_board.js** by putting in a winning diagonal left, diagonal right, horizontal or vertical win of X or O.
 
 
 
