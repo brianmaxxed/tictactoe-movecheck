@@ -1,6 +1,6 @@
 # tictactoe-movecheck
 
-This is a simple ES6 Node.js JavaScript program that will check for a winner of a tic-tac-toe game based on the current setup of the board.
+This is a **simple** ES6 Node.js JavaScript program that will check for a winner of a tic-tac-toe game based on the current setup of the board.
 You can create a grid of any size and have an uneven grid height and width. You can even set the number of consecutive letters needed for a win! So, think Super Connect 4 :)
 
 # What's special about this tic-tac-toe board?
@@ -11,6 +11,20 @@ With a one dimensional array it is easy to process the board to check for a win,
 There are also only 4 possible combination checks: horizontal, vertical, diagonal left, and diagonal right, and you merely loop once over the array.
 
 It is easy to compute the consecutive winning letters and you can immediately stop checking a particular combination once you no longer have the same player letter that you are looking for.
+
+# Object-oriented ES6 JavaScript
+
+There are only a few files.
+
+**Board.js** is the board class. here you can import the test_board.js, display the grid, or check the board for a win or tie.
+
+**MoveCheck.js** manges the move checking process and is instanciated by Board.js. The code is nice and clean and easy to follow. The main logic is in the validateNext function where the code will validate a horizontal, vertical, diagonal left or diagonal right direction. 
+
+Essentially, a horizontal move checks 4 sequential characters in the string. This could have been a simple indexOf('XXXX'), for example. 
+
+A vertical or diagonal move is essentially the same thing. Instead of moving through a step of gridX characters for a vertical match, the code will navigate gridX - 1 or gridX + 1 to simulate a diagonal check to the left and right :)
+
+The **vars.js** file merely establishes X, O and e as the constants for creating test boards. 
 
 # How can we make the code better?
 Well, finishing the game would be nice. :) I'll implement a Computer AI and check for different player turns.
@@ -104,6 +118,12 @@ You can review the moves thar won (an array of the board data string indexes).
 The (x,y) coordinates are listed as coords.
 
 Lastly, the output object will tell you if someone won or there was a tie.
+
+# Additional testing boards
+
+You can view other test boards that start with test_*.js. There is a tie board and an unfinished board. Feel free to modify test_board.js by putting in a winning diagonal left, diagonal right, horizontal or vertical win of X or O.
+
+
 
 
 
