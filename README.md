@@ -75,6 +75,62 @@ The game will output simple data for a winner if someone won.
 Finally, if there are no spaces left the game (try replacing all the e's with X's and O's) then the game reports a tie.
 
 
+# The Recursion
+
+In the **Board.js** class, you will find the ***```checkForWin```*** function.
+This is where the recursion happens. You're passing in the data object that you will use to check the current coordinates (the index in the string of board data set as it's x and y coordinates. The **check** parameter is an instance of the **MoveCheck** class that has all you need to monitor a particular horizontal, vertical, or diagonal move check from a particular index.
+
+If the move didn't lead to a win then validate the next move for the current validation check direction:
+
+```
+  checkForWin(check) {
+    if (!this.inBounds(check)) {
+      return check
+    }
+
+    const {
+      x,
+      y
+    } = check.updateCoordinates(this.board.gridX)
+    if (check.hasWon()) {
+      return check
+    }
+
+    if (!check.validateNext(x, y)) {
+      return check
+    }
+
+    return this.checkForWin(check)
+  }
+```
+
+Take it a step back and look in the **Board.js** class to see the main loop is in the function **checkBoard** where you greate one linear loop through the string of characters and check in each direction. The board and move check routines are smart enough to make sure you are within the bondaries of the board (think flat earth here from left to right) and the gridX and gridY coordinates. If you try to go below to (-1, Y) or (gridX + 1, Y for example, then that depth check will recursion depth will finish and go back up.
+
+```
+checkBoard(player) {
+    let position
+    let len = this.board.data.length
+
+    for (position = 0; position < len; position++) {
+      if (this.board.data[position] === player) {
+        for (let type in MoveCheck.types) {
+          let check = this.checkForWin(new MoveCheck(player, this.board,
+            MoveCheck.types[type], position))
+
+          if (check.won) {
+            console.log(`${player} Won!`)
+            console.dir(check, {
+              depth: null,
+              colors: true
+            })
+            return check
+          }
+        }
+      }
+    }
+  }
+```
+
 # Sample Output
 The following would be a sample output if a player won:
 ```
