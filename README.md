@@ -72,6 +72,7 @@ The const winSize = 4 designates that 4 consecutive X's or O's are required for 
 # The game.js main logic
 Take a look at game.js and you will find that X is checked first as Player 1 and then O is checked next as Player 2.
 The game will output simple data for a winner if someone won.
+
 Finally, if there are no spaces left the game (try replacing all the e's with X's and O's) then the game reports a tie.
 
 
@@ -83,6 +84,9 @@ This is where the recursion happens. You're passing in the data object that you 
 If the move didn't lead to a win then validate the next move for the current validation check direction:
 
 ```
+
+  # check is an instantiation of the MoveCheck class
+
   checkForWin(check) {
     if (!this.inBounds(check)) {
       return check
@@ -104,7 +108,7 @@ If the move didn't lead to a win then validate the next move for the current val
   }
 ```
 
-Take it a step back and look in the **Board.js** class to see the main loop is in the function **checkBoard** where you greate one linear loop through the string of characters and check in each direction. The board and move check routines are smart enough to make sure you are within the bondaries of the board (think flat earth here from left to right) and the gridX and gridY coordinates. If you try to go below to (-1, Y) or (gridX + 1, Y for example, then that depth check will recursion depth will finish and go back up.
+Take it a step back and look in the **Board.js** class to see the main loop is in the function **checkBoard** where you create one linear loop through the string of characters and check in each direction. The board and move check routines are smart enough to make sure you are within the bondaries of the board (think flat earth here from left to right) and the gridX and gridY coordinates. If you try to go below to (-1, Y) or (gridX + 1, Y for example, then that depth check recursion depth type will finish and go back up. The bounds are also checked for (X, gridY + 1) down. Remember, we never have to check back up or left (we're already past it, and we're being smart here)!
 
 ```
 checkBoard(player) {
