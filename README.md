@@ -19,7 +19,7 @@ Also, to make the algorithm even faster we could store indexes of already checke
 
 # Grab the source code
 clone the repo:
-git clone git@github.com:briansizelr/tictactoe-movecheck.git
+git clone (git@github.com:briansizelr/tictactoe-movecheck.git]
 
 # Run the game
 and simply run game.js from the command line:
@@ -28,9 +28,10 @@ node game.js
 the script will load in the test_board.js sample board as a multi-dimensional array.
 You can change the board to contain different X, O and empty space combinations. The empties are designated with a lowercase 'e'.
 
-# make a test board.
+# make a test board
 Have a look at test_board.js:
 
+```
 const {X, O, e} = require('./vars')
 const winSize = 4
 
@@ -45,6 +46,7 @@ const testBoard = [
 ]
 
 module.exports = { winSize, testBoard }
+```
 
 In the above example a diagonal right of 4 consecutive Xs is the winner.
 The const winSize = 4 designates that 4 consecutive X's or O's are required for a win.
@@ -57,7 +59,7 @@ Finally, if there are no spaces left the game (try replacing all the e's with X'
 
 # Sample Output
 The following would be a sample output if a player won:
-
+```
 [
 	[O,O,O,-,-,-,-,-]
 	[O,O,-,-,-,O,O,O]
@@ -68,7 +70,9 @@ The following would be a sample output if a player won:
 	[O,-,-,O,-,-,O,O]
 
 ]
+```
 
+```
 O Won!
 MoveCheck {
   player: 'O',
@@ -84,11 +88,12 @@ MoveCheck {
   coords: [ '(3, 3)', '(3, 4)', '(3, 5)', '(3, 6)' ],
   won: true,
   tie: false }
-
+}
+```
 
 Notice above that the board has several data elements.
 
-the board.data is the board represented as a one dimensional array of characters for very fast processing.
+the board.data is the board represented as a one dimensional string of characters for very fast processing.
 gridX and gridY are the size of the grid. In the above example the grid is 8x7.
 the winSize is taken from the test_board.js file and it means you need 4 in a row.
 Experiment with other win sizes up to the grid X or Y dimensions.
