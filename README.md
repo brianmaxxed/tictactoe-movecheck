@@ -5,6 +5,8 @@ You can create a grid of any size and have an uneven grid height and width. You 
 
 It's RECURSIVE, so it's light on it's feet and fast. The recursion depth will stop when a non-consecutive player character is found in the direction it is checking (horizontal, vertical, and diagonal!
 
+You can also setup test boards quickly!! It's just checking a move. More to come later interms of finishing the game ;)
+
 # What's special about this tic-tac-toe board?
 
 Well, it's a simple ES6 object-oriented example where you can input a 2 dimensional array and process the moves as a one dimensional string, and I think it shows a good understanding of how to manipulate an array of data quickly and easily.
