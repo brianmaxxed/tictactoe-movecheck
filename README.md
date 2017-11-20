@@ -85,7 +85,7 @@ If the move didn't lead to a win then validate the next move for the current val
 
 ```
 
-  # check is an instantiation of the MoveCheck class
+  // check is an instantiation of the MoveCheck class
 
   checkForWin(check) {
     if (!this.inBounds(check)) {
@@ -115,12 +115,17 @@ checkBoard(player) {
     let position
     let len = this.board.data.length
 
+    // let's go through the string from left to right.
     for (position = 0; position < len; position++) {
       if (this.board.data[position] === player) {
+
+        // we need to loop over the 4 move types (horizontal, vertical, diag left and diag right
         for (let type in MoveCheck.types) {
+          // kick off a recursive check for each win type. it's dynamic and recursive!
           let check = this.checkForWin(new MoveCheck(player, this.board,
             MoveCheck.types[type], position))
 
+          // if we find a win we can stop
           if (check.won) {
             console.log(`${player} Won!`)
             console.dir(check, {
