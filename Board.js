@@ -72,6 +72,14 @@ class Board {
     return this.checkForWin(check)
   }
 
+  isFilled() {
+    if (this.board.data.indexOf(EMPTY) === -1) {
+      console.log(`The board is full. It's a TIE!`)
+    } else {
+      console.log(`The game isn't finished, and has no winner.`)
+    }
+  }
+
   inBounds(check) {
     if (check.position > this.board.data.length ||
       this.board.data[check.position] !== check.player) {
